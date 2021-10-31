@@ -1,33 +1,52 @@
 const path = require('path');
 const contactsPath = path.resolve('./db/contacts.json')
-console.log(contactsPath)
-
-const fs = require('fs')
 
 
-function listContacts() {
-   fs.readFile(contactsPath, 'utf8', (error, data) => {
-    if (error) {
+const fs = require('fs').promises
+
+
+async function listContacts() {
+   
+    try {
+        const data = await fs.readFile(contactsPath, 'utf8')
+        console.log(data) 
+    } catch (error) {
         console.log(error)
     }
-    console.log(data)
-}) 
 }
+//  listContacts()
 
 function getContactById(contactId) {
  
 }
 
-function removeContact(contactId) {
-  // ...твой код
+// async function removeContact(contactId) {
+//   try {
+//         const data = await fs.unlink()
+//         console.log(data) 
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+// removeContact(2)
+
+async function addContact(name, email, phone) {
+ try {
+        const NewContact = `${data} name email phone `
+     await fs.writeFile(contactsPath,NewContact, 'utf8')
+        console.log(data) 
+    } catch (error) {
+        console.log(error)
+    }
 }
 
-function addContact(name, email, phone) {
-  // ...твой код
-}
+// addContact(tess)
 
 
-export {
-    listContacts
-}
+// export {
+//     listContacts,
+//     getContactById,
+//     removeContact,
+//     addContact
+// }
 
