@@ -9,6 +9,7 @@
   "name": "node.js-1-cli",
   "version": "1.0.0",
   "main": "index.js",
+   "type": "commonjs",  
   "dependencies": {
     "abbrev": "^1.1.1",
     "ansi-align": "^3.0.1",
