@@ -20,14 +20,14 @@ function getContactById(contactId) {
  
 }
 
-// async function removeContact(contactId) {
-//   try {
-//         const data = await fs.unlink()
-//         console.log(data) 
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+async function removeContact(contactId) {
+  try {
+        const data = await fs.unlink('contactID', )
+        console.log(data) 
+    } catch (error) {
+        console.log(error)
+    }
+}
 // removeContact(2)
 
 async function addContact(name, email, phone) {
