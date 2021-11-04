@@ -34,13 +34,11 @@ async function removeContact(contactId) {
 // removeContact(8);
 
 async function addContact(name, email, phone) {
-  try {
+ 
     const NewContact = `${data} name email phone `;
     await fs.writeFile(contactsPath, NewContact, 'utf8');
     console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
+  
 }
 
 // addContact(tess)
