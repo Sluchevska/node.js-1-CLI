@@ -8,7 +8,7 @@ const fs = require('fs').promises;
 async function listContacts() {
   try {
     const data = await fs.readFile(contactsPath, 'utf8');
-    console.log(data);
+    console.table(data);
     return JSON.parse(data);
   } catch (error) {
     return console.log(error);
