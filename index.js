@@ -15,18 +15,15 @@ program.parse(process.argv);
 
 const argv = program.opts();
     
-// listContacts()
-// getContactById(2)
-// addContact('wonka', '23@gmail.com', '455874')
-// removeContact('6e166c3d-23e7-4825-89bb-f1c2bdd9375d')
 
-// TODO: рефакторить
+
+
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case 'list':
-      return listContacts()
-      //   .then((data) => console.table(data))
-      // .catch(console.error)
+      listContacts()
+        .then((data) => console.table(data))
+      .catch(console.error)
       break;
 
     case 'get':
@@ -46,4 +43,4 @@ function invokeAction({ action, id, name, email, phone }) {
   }
 }
 
-invokeAction(argv);
+invokeAction(argv)
