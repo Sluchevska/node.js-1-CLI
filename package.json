@@ -1,6 +1,8 @@
 {
   "devDependencies": {
-    "nodemon": "^2.0.14"
+    "eslint": "^8.1.0",
+    "nodemon": "^2.0.14",
+    "prettier": "^2.4.1"
   },
   "scripts": {
     "start": "node index.js",
@@ -9,7 +11,7 @@
   "name": "node.js-1-cli",
   "version": "1.0.0",
   "main": "index.js",
-   "type": "commonjs",  
+  "type": "commonjs",
   "dependencies": {
     "abbrev": "^1.1.1",
     "ansi-align": "^3.0.1",
