@@ -27,15 +27,26 @@ function invokeAction({ action, id, name, email, phone }) {
       break;
 
     case 'get':
-      return getContactById(id)
+      getContactById(id)
+        .then(contact => {
+          if (contact) {
+          console.table(contact)
+          } else {
+            console.log('Contact not found')
+        }
+      }).catch(console.error)
       break;
 
     case 'add':
-      return addContact( name, email, phone)
+      addContact(name, email, phone).then(contacts => {
+        console.table(contacts)
+      }).catch(console.error)
       break;
 
     case 'remove':
-      return removeContact(id)
+      removeContact(id).then(contact => {
+        console.table(contacts)
+      }).catch(console.error)
       break;
 
     default:
