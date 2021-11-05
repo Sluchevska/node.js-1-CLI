@@ -18,41 +18,42 @@ program.parse(process.argv);
 
 const argv = program.opts();
 
-function invokeAction({ action, id, name, email, phone }) {
-  switch (action) {
-    case 'list':
-      listContacts()
-        .then(data => console.table(data))
-        .catch(console.error);
-      break;
+const invokeAction = async ({ action, id, name, email, phone }) => {
+  try {
+    switch (action) {
+      case 'list':
+        const contacts = await listContacts()
+          console.table(contacts)
+      
+        break;
 
-    case 'get':
-      getContactById(id)
-        .then(contact => {
-          if (contact) {
-            console.table(contact);
-          } else {
-            console.log('Contact not found');
-          }
-        })
-        .catch(console.error);
-      break;
+      case 'get':
+        const contactById = await getContactById(id)
+        if (contactById) {
+          console.table(contactById)
+        } else {
+          console.log('Contact not found')
+        }
+         
+        break;
 
-    case 'add':
-      addContact(name, email, phone)
-        .then(contacts => {
-          console.table(contacts);
-        })
-        .catch(console.error);
-      break;
+      case 'add':
+       const newContact =  await addContact(name, email, phone)
+        console.table(newContact) 
+        break;
 
-    case 'remove':
-      removeContact(id)
-             break;
+      case 'remove':
+        removeContact(id)
+        break;
 
-    default:
-      console.warn('\x1B[31m Unknown action type!');
+      default:
+        console.warn('\x1B[31m Unknown action type!');
+    }
+    }catch (error) {
+    console.log(error.message)
+  
   }
+  
 }
 
 invokeAction(argv);
