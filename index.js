@@ -48,11 +48,7 @@ function invokeAction({ action, id, name, email, phone }) {
 
     case 'remove':
       removeContact(id)
-        .then(contact => {
-          console.table(contact);
-        })
-        .catch(console.error);
-      break;
+             break;
 
     default:
       console.warn('\x1B[31m Unknown action type!');
