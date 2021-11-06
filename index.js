@@ -6,6 +6,7 @@ const {
   removeContact,
 } = require('./contacts');
 
+
 const program = new Command();
 program
   .option('-a, --action <type>', 'choose action')
